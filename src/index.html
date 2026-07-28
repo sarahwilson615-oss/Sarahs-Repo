@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Port Aransas Residential Market Report</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="shell">
+    <header class="top">
+      <div>
+        <img id="headerLogo" class="app-logo" alt="Coldwell Banker Island Escapes" hidden />
+        <p class="eyebrow" id="brandName">Coldwell Banker Island Escapes</p>
+        <h1>Port Aransas Residential Market Report</h1>
+        <p class="lede">Residential only — breaks out Single Family, Condo, Townhome, and more from your MLS Housing Type.</p>
+      </div>
+    </header>
+
+    <section class="panel">
+      <h2>1. Report period</h2>
+      <div class="row">
+        <label>Report period
+          <input id="reportMonth" type="text" placeholder="Last 30 days (as of Jul 27, 2026)" value="Last 30 days (as of Jul 27, 2026)" />
+        </label>
+        <label>Compare to (optional)
+          <input id="priorMonth" type="text" placeholder="Same period last year" value="" />
+        </label>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>2. Residential MLS exports</h2>
+      <p class="hint">Port Aransas / 78373 · Residential property class only. Include <strong>Housing Type</strong> and <strong>Selling Price</strong> (on sold) when exporting.</p>
+      <div class="uploads">
+        <label>Active listings
+          <input id="resActive" type="file" accept=".csv,text/csv" />
+        </label>
+        <label>Sold / closed
+          <input id="resSold" type="file" accept=".csv,text/csv" />
+        </label>
+        <label>Active — prior year (optional YoY)
+          <input id="resActivePrior" type="file" accept=".csv,text/csv" />
+        </label>
+        <label>Sold — prior year (optional YoY)
+          <input id="resSoldPrior" type="file" accept=".csv,text/csv" />
+        </label>
+      </div>
+      <div class="actions">
+        <button type="button" class="primary" id="runBtn">Run report</button>
+        <button type="button" class="ghost" id="inboxBtn">Load July 27 data (inbox)</button>
+        <button type="button" class="ghost" id="sampleBtn">Try sample data</button>
+      </div>
+      <p class="status" id="status" role="status"></p>
+    </section>
+
+    <section class="panel results" id="results" hidden>
+      <h2>3. Outputs</h2>
+
+      <div class="out-block">
+        <div class="out-head">
+          <h3>Branded one-pager</h3>
+          <div class="actions compact">
+            <button type="button" id="downloadReport">Download HTML</button>
+            <button type="button" id="printReport">Print / Save PDF</button>
+          </div>
+        </div>
+        <iframe id="reportPreview" title="Report preview"></iframe>
+      </div>
+
+      <div class="out-block">
+        <div class="out-head">
+          <h3>Social graphics</h3>
+          <div class="actions compact">
+            <button type="button" id="downloadSquare">Download square PNG</button>
+            <button type="button" id="downloadStory">Download story PNG</button>
+          </div>
+        </div>
+        <div class="social-grid">
+          <figure>
+            <canvas id="socialSquare" width="1080" height="1080"></canvas>
+            <figcaption>Feed square · coastal snapshot</figcaption>
+          </figure>
+          <figure>
+            <canvas id="socialStory" width="1080" height="1920"></canvas>
+            <figcaption>Story / Reel · taller island check-in</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <div class="out-block">
+        <div class="out-head">
+          <h3>E-newsletter</h3>
+          <div class="actions compact">
+            <button type="button" id="copyNewsletter">Copy plain text</button>
+          </div>
+        </div>
+        <label>Subject
+          <input id="newsletterSubject" type="text" readonly />
+        </label>
+        <label>Plain text
+          <textarea id="newsletterText" rows="14" readonly></textarea>
+        </label>
+        <label>HTML snippet
+          <textarea id="newsletterHtml" rows="10" readonly></textarea>
+        </label>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>Housing types use MLS <strong>Housing Type</strong> when present (Single Family, Condo, Townhome). Otherwise <strong>Condo Type</strong> is used. Confirm MLS rules before publishing aggregates.</p>
+    </footer>
+  </div>
+
+  <script src="brand.js"></script>
+  <script src="logos.js"></script>
+  <script src="samples.js"></script>
+  <script src="inbox-data.js"></script>
+  <script src="stats.js"></script>
+  <script src="outputs.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+.DS_Store
+.tmp-cal-compare/
+output/**/*.pdf
+output/**/*.png
+output/**/*.html
+output/**/*.txt
+!output/README.md
+data/inbox/*.csv
+!data/inbox/README.md

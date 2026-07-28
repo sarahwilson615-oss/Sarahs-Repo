@@ -1,0 +1,35 @@
+/** Editable brand config — keep in sync with ../brand.json */
+(function (global) {
+  global.BrandConfig = {
+    brokerageName: "Coldwell Banker Island Escapes",
+    agentName: "Sarah Pate Wilson",
+    tagline: "Port Aransas Local Experts",
+    marketName: "Port Aransas",
+    phone: "(361) 416-0556",
+    email: "sarah@cbporta.com",
+    website: "https://www.cbporta.com",
+    voice: "coastal",
+    colors: {
+      sand: "#F4F1EA",
+      foam: "#FAF8F4",
+      gulf: "#002F6C",
+      tide: "#1A4A8A",
+      coral: "#C45C26",
+      ink: "#1A1F24",
+      muted: "#5C6670"
+    },
+    cta: "Thinking of buying or selling in Port Aransas? Let's talk island market strategy.",
+    team: [
+      {
+        name: "Sarah Pate Wilson",
+        phone: "(361) 416-0556",
+        email: "sarah@cbporta.com"
+      },
+      {
+        name: "Marnie Pate",
+        phone: "(361) 460-0250",
+        email: "marnie@portaescapes.com"
+      }
+    ]
+  };
+})(typeof window !== "undefined" ? window : globalThis);
