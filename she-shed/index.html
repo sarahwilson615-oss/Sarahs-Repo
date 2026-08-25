@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wilson She-Shed · 8×16 Interior Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --navy: #0b2545;
+      --navy-mid: #163a63;
+      --steel: #2c3e50;
+      --pearl: #f3efe6;
+      --cream: #faf7f1;
+      --ink: #1c2430;
+      --muted: #5a6675;
+      --accent: #c45c26;
+      --floor: #1a365d;
+      --floor-light: #2a4a7a;
+      --shiplap: #f7f4ee;
+      --bed: #8fa8c4;
+      --desk: #6b5b4a;
+      --cozy: #b08968;
+      --tv: #2d3436;
+      --line: rgba(28, 36, 48, 0.14);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Outfit", system-ui, sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(1200px 600px at 10% -10%, #d9e4f2 0%, transparent 55%),
+        radial-gradient(900px 500px at 100% 0%, #f0e6d8 0%, transparent 50%),
+        var(--cream);
+      line-height: 1.5;
+    }
+
+    header {
+      padding: 2.5rem 1.5rem 1.25rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    header .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--navy-mid);
+      font-weight: 600;
+    }
+    h1 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 700;
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      margin: 0.35rem 0 0.75rem;
+      color: var(--navy);
+    }
+    .lede {
+      max-width: 42rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .spec-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.25rem;
+    }
+    .chip {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.8rem;
+      font-size: 0.85rem;
+      color: var(--navy-mid);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 4rem;
+    }
+
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 1.75rem 0 1rem;
+    }
+    .tab {
+      appearance: none;
+      border: 1px solid var(--line);
+      background: white;
+      color: var(--ink);
+      font: inherit;
+      font-weight: 500;
+      padding: 0.65rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s, border-color 0.15s;
+    }
+    .tab:hover { border-color: var(--navy-mid); }
+    .tab[aria-selected="true"] {
+      background: var(--navy);
+      color: white;
+      border-color: var(--navy);
+    }
+
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    .layout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(280px, 0.85fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+    @media (max-width: 860px) {
+      .layout-grid { grid-template-columns: 1fr; }
+    }
+
+    .plan-card, .side-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 18px 40px rgba(11, 37, 69, 0.06);
+    }
+    .plan-card { padding: 1rem 1rem 0.75rem; }
+    .plan-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 0.75rem;
+      padding: 0 0.25rem;
+    }
+    .plan-label h2 {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.25rem;
+      margin: 0;
+      color: var(--navy);
+    }
+    .plan-label span {
+      font-size: 0.8rem;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    svg.floorplan {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 12px;
+      background:
+        repeating-linear-gradient(
+          45deg,
+          var(--floor) 0 10px,
+          var(--floor-light) 10px 20px
+        );
+    }
+
+    .side-card { padding: 1.25rem 1.35rem 1.4rem; }
+    .side-card h3 {
+      font-family: "Fraunces", Georgia, serif;
+      margin: 0 0 0.5rem;
+      font-size: 1.15rem;
+      color: var(--navy);
+    }
+    .side-card p { margin: 0 0 0.85rem; color: var(--muted); font-size: 0.95rem; }
+    .side-card ul {
+      margin: 0;
+      padding-left: 1.1rem;
+      color: var(--ink);
+      font-size: 0.95rem;
+    }
+    .side-card li { margin-bottom: 0.4rem; }
+    .tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.35rem;
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 1.1rem;
+      margin-top: 0.85rem;
+      padding: 0.35rem 0.25rem 0.85rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+    .legend i {
+      display: inline-block;
+      width: 0.75rem;
+      height: 0.75rem;
+      border-radius: 3px;
+      margin-right: 0.35rem;
+      vertical-align: -1px;
+    }
+
+    .zones {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin: 1.5rem 0 0;
+    }
+    @media (max-width: 700px) {
+      .zones { grid-template-columns: 1fr; }
+    }
+    .zone {
+      background: rgba(255,255,255,0.72);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 1rem 1.1rem;
+    }
+    .zone strong {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .zone span { font-size: 0.9rem; color: var(--muted); }
+
+    section.block {
+      margin-top: 2.25rem;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      padding: 1.4rem 1.5rem 1.55rem;
+      box-shadow: 0 18px 40px rgba(11, 37, 69, 0.05);
+    }
+    section.block h2 {
+      font-family: "Fraunces", Georgia, serif;
+      margin: 0 0 0.65rem;
+      color: var(--navy);
+      font-size: 1.35rem;
+    }
+    section.block p { color: var(--muted); margin-top: 0; }
+    .dims {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+    .dim {
+      background: var(--pearl);
+      border-radius: 12px;
+      padding: 0.85rem 1rem;
+    }
+    .dim b { display: block; color: var(--navy); font-size: 0.95rem; }
+    .dim span { font-size: 0.85rem; color: var(--muted); }
+
+    .shopping {
+      columns: 2;
+      column-gap: 2rem;
+      margin: 0.75rem 0 0;
+      padding-left: 1.1rem;
+    }
+    @media (max-width: 700px) { .shopping { columns: 1; } }
+    .shopping li { break-inside: avoid; margin-bottom: 0.45rem; }
+
+    footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem 2.5rem;
+      color: var(--muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="eyebrow">Graceland Signature · Urban Shed · CPQ539101</div>
+    <h1>Wilson She-Shed Interior Planner</h1>
+    <p class="lede">
+      Scaled top-down options for your 8×16ft shed. Door and both windows sit on one long wall,
+      so sleep and work claim the short ends, with a cozy middle in the natural light.
+    </p>
+    <div class="spec-strip">
+      <span class="chip">Exterior 8′ × 16′</span>
+      <span class="chip">Interior ~7′5″ × 15′5″</span>
+      <span class="chip">Door centered on Wall 4</span>
+      <span class="chip">2× 24×36 windows + transoms</span>
+      <span class="chip">Steel Blue / Pearl exterior</span>
+    </div>
+  </header>
+
+  <main>
+    <div class="tabs" role="tablist" aria-label="Layout options">
+      <button class="tab" role="tab" id="tab-a" aria-selected="true" aria-controls="panel-a">A · Recommended</button>
+      <button class="tab" role="tab" id="tab-b" aria-selected="false" aria-controls="panel-b">B · U-Desk Studio</button>
+      <button class="tab" role="tab" id="tab-c" aria-selected="false" aria-controls="panel-c">C · Flipped Ends</button>
+      <button class="tab" role="tab" id="tab-shell" aria-selected="false" aria-controls="panel-shell">Shell · Openings only</button>
+    </div>
+
+    <!-- ===================== OPTION A ===================== -->
+    <div class="panel active" id="panel-a" role="tabpanel" aria-labelledby="tab-a">
+      <div class="layout-grid">
+        <div class="plan-card">
+          <div class="plan-label">
+            <h2>Layout A — Sleep · Lounge · Create</h2>
+            <span>1 sq = 1 ft · looking down</span>
+          </div>
+          <svg class="floorplan" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-label="Top-down floor plan option A">
+            <!-- room: 16ft wide (x) x 8ft deep (y) — Wall4 (door) at top of drawing for readability -->
+            <!-- Coordinate system: x along 16ft length, y along 8ft width -->
+            <!-- Wall1 left short, Wall3 right short, Wall2 bottom long, Wall4 top long with door -->
+            <defs>
+              <pattern id="navyFloor" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)">
+                <rect width="16" height="16" fill="#1a365d"/>
+                <rect width="8" height="16" fill="#243f6e"/>
+              </pattern>
+              <pattern id="shiplapHint" patternUnits="userSpaceOnUse" width="100" height="8">
+                <rect width="100" height="7" fill="#f7f4ee"/>
+                <rect y="7" width="100" height="1" fill="#e5dfd2"/>
+              </pattern>
+            </defs>
+
+            <!-- exterior footprint -->
+            <rect x="40" y="40" width="440" height="220" fill="url(#navyFloor)" stroke="#0b2545" stroke-width="4" rx="2"/>
+
+            <!-- wall labels -->
+            <text x="260" y="28" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 4 · door + windows (16′)</text>
+            <text x="260" y="282" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 2 · solid (16′)</text>
+            <text x="18" y="155" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675" transform="rotate(-90 18 155)">WALL 1 · 8′</text>
+            <text x="502" y="155" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675" transform="rotate(90 502 155)">WALL 3 · 8′</text>
+
+            <!-- openings on Wall 4 (top): scale 440px = 192" → 2.2917 px/in -->
+            <!-- window1 center 36", door center 96", window2 center 156" -->
+            <g fill="#cfe0f5" stroke="#0b2545" stroke-width="1.5">
+              <!-- left window ~24" -->
+              <rect x="82" y="36" width="55" height="8" rx="1"/>
+              <!-- door 36" -->
+              <rect x="204" y="34" width="82" height="12" rx="1" fill="#f3efe6"/>
+              <!-- right window -->
+              <rect x="357" y="36" width="55" height="8" rx="1"/>
+            </g>
+            <text x="245" y="52" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#0b2545">DOOR</text>
+            <text x="110" y="52" text-anchor="middle" font-family="Outfit,sans-serif" font-size="8" fill="#163a63">WIN</text>
+            <text x="385" y="52" text-anchor="middle" font-family="Outfit,sans-serif" font-size="8" fill="#163a63">WIN</text>
+
+            <!-- door swing arc (outswing, exterior) -->
+            <path d="M 204 34 Q 204 8 245 8" fill="none" stroke="#c45c26" stroke-width="1.2" stroke-dasharray="3 2"/>
+
+            <!-- BED NOOK — Wall 1 end, 3.5ft deep twin platform spanning width -->
+            <rect x="44" y="44" width="96" height="212" fill="#d7e3f0" stroke="#5b7fa8" stroke-width="1.5" opacity="0.95"/>
+            <rect x="52" y="70" width="72" height="160" rx="6" fill="#8fa8c4" stroke="#4a6a88" stroke-width="1.5"/>
+            <rect x="58" y="78" width="60" height="36" rx="4" fill="#f7f4ee" opacity="0.9"/>
+            <text x="92" y="160" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#0b2545">BED NOOK</text>
+            <text x="92" y="176" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#163a63">twin platform</text>
+            <text x="92" y="190" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#163a63">~3′6″ deep</text>
+            <!-- curtain marks -->
+            <line x1="140" y1="50" x2="140" y2="250" stroke="#f3efe6" stroke-width="3" stroke-dasharray="6 4"/>
+
+            <!-- COZY MIDDLE -->
+            <rect x="150" y="150" width="100" height="70" rx="8" fill="#b08968" stroke="#8a6a4e" stroke-width="1.5"/>
+            <text x="200" y="182" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#fff" font-weight="600">loveseat</text>
+            <text x="200" y="196" text-anchor="middle" font-family="Outfit,sans-serif" font-size="8" fill="#f3efe6">faces TV</text>
+
+            <!-- coffee table -->
+            <rect x="175" y="120" width="50" height="24" rx="3" fill="#d9c4a8" stroke="#a89070" stroke-width="1"/>
+
+            <!-- TV on Wall 2 (solid long wall) -->
+            <rect x="170" y="248" width="60" height="8" rx="1" fill="#2d3436"/>
+            <text x="200" y="242" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#f3efe6">TV</text>
+
+            <!-- L-DESK on Wall 3 end -->
+            <path d="M 330 52 H 472 V 248 H 400 V 130 H 330 Z" fill="#6b5b4a" stroke="#4d4033" stroke-width="1.5" opacity="0.92"/>
+            <text x="410" y="100" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#f7f4ee">L-DESK</text>
+            <!-- stations -->
+            <rect x="350" y="62" width="40" height="28" rx="2" fill="#1c2430"/>
+            <text x="370" y="80" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#cfe0f5">PC</text>
+            <rect x="420" y="62" width="40" height="28" rx="2" fill="#eee8df"/>
+            <text x="440" y="80" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#1c2430">Cricut</text>
+            <rect x="430" y="160" width="36" height="36" rx="2" fill="#3d4f5f"/>
+            <text x="448" y="182" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#fff">3DP</text>
+            <text x="400" y="220" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#f3efe6">~5′ zone</text>
+
+            <!-- circulation path -->
+            <path d="M 245 46 L 245 130 L 300 130" fill="none" stroke="#f3efe6" stroke-width="2" stroke-dasharray="5 4" opacity="0.7"/>
+            <text x="268" y="118" font-family="Outfit,sans-serif" font-size="8" fill="#f3efe6">entry</text>
+
+            <!-- scale bar -->
+            <g transform="translate(40 275)">
+              <line x1="0" y1="0" x2="27.5" y2="0" stroke="#0b2545" stroke-width="2"/>
+              <line x1="0" y1="-3" x2="0" y2="3" stroke="#0b2545" stroke-width="2"/>
+              <line x1="27.5" y1="-3" x2="27.5" y2="3" stroke="#0b2545" stroke-width="2"/>
+              <text x="36" y="4" font-family="Outfit,sans-serif" font-size="9" fill="#5a6675">1 ft</text>
+            </g>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#8fa8c4"></i>Bed nook</span>
+            <span><i style="background:#b08968"></i>Seating</span>
+            <span><i style="background:#6b5b4a"></i>Desk</span>
+            <span><i style="background:#1a365d"></i>Navy floor pattern</span>
+            <span><i style="background:#c45c26"></i>Door swing (out)</span>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <div class="tag">Best overall balance</div>
+          <h3>Why this works</h3>
+          <p>
+            Twin platform nook uses only ~3′6″ of length on Wall&nbsp;1. The centered door lands in the lounge,
+            and the L-desk claims Wall&nbsp;3 with room for PC, Cricut, and a 3D printer on the return.
+          </p>
+          <ul>
+            <li><strong>Bed:</strong> twin / twin-XL platform, wall-to-wall shelves or curtains as nook frame</li>
+            <li><strong>Lounge:</strong> compact loveseat + small table; TV on solid Wall&nbsp;2 (no glare from door windows)</li>
+            <li><strong>Desk:</strong> L-shape — long run on Wall&nbsp;3, return along Wall&nbsp;4 or Wall&nbsp;2</li>
+            <li><strong>3D printer:</strong> outer corner of desk zone — farthest from bed, near window for venting later</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ===================== OPTION B ===================== -->
+    <div class="panel" id="panel-b" role="tabpanel" aria-labelledby="tab-b">
+      <div class="layout-grid">
+        <div class="plan-card">
+          <div class="plan-label">
+            <h2>Layout B — U-Desk Studio</h2>
+            <span>more work surface · tighter lounge</span>
+          </div>
+          <svg class="floorplan" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-label="Top-down floor plan option B">
+            <defs>
+              <pattern id="navyFloorB" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)">
+                <rect width="16" height="16" fill="#1a365d"/>
+                <rect width="8" height="16" fill="#243f6e"/>
+              </pattern>
+            </defs>
+            <rect x="40" y="40" width="440" height="220" fill="url(#navyFloorB)" stroke="#0b2545" stroke-width="4"/>
+            <text x="260" y="28" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 4 · door + windows</text>
+            <g fill="#cfe0f5" stroke="#0b2545" stroke-width="1.5">
+              <rect x="82" y="36" width="55" height="8" rx="1"/>
+              <rect x="204" y="34" width="82" height="12" rx="1" fill="#f3efe6"/>
+              <rect x="357" y="36" width="55" height="8" rx="1"/>
+            </g>
+
+            <!-- bed -->
+            <rect x="44" y="44" width="90" height="212" fill="#d7e3f0" stroke="#5b7fa8" stroke-width="1.5"/>
+            <rect x="52" y="70" width="68" height="160" rx="6" fill="#8fa8c4" stroke="#4a6a88" stroke-width="1.5"/>
+            <text x="86" y="160" text-anchor="middle" font-family="Fraunces,serif" font-size="12" fill="#0b2545">BED</text>
+            <text x="86" y="176" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#163a63">~3′4″</text>
+
+            <!-- slim lounge -->
+            <rect x="150" y="170" width="70" height="55" rx="8" fill="#b08968" stroke="#8a6a4e" stroke-width="1.5"/>
+            <text x="185" y="202" text-anchor="middle" font-family="Outfit,sans-serif" font-size="10" fill="#fff">chair</text>
+            <rect x="160" y="248" width="50" height="8" rx="1" fill="#2d3436"/>
+            <text x="185" y="242" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#f3efe6">TV</text>
+
+            <!-- U-DESK -->
+            <path d="M 250 52 H 472 V 248 H 250 V 190 H 400 V 110 H 250 Z" fill="#6b5b4a" stroke="#4d4033" stroke-width="1.5"/>
+            <text x="360" y="155" text-anchor="middle" font-family="Fraunces,serif" font-size="14" fill="#f7f4ee">U-DESK</text>
+            <rect x="270" y="62" width="36" height="26" rx="2" fill="#1c2430"/>
+            <text x="288" y="79" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#cfe0f5">PC</text>
+            <rect x="420" y="62" width="40" height="26" rx="2" fill="#eee8df"/>
+            <text x="440" y="79" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#1c2430">Cricut</text>
+            <rect x="420" y="200" width="36" height="36" rx="2" fill="#3d4f5f"/>
+            <text x="438" y="222" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#fff">3DP</text>
+            <text x="340" y="230" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#f3efe6">wraps 3 sides · ~6′ zone</text>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#8fa8c4"></i>Bed</span>
+            <span><i style="background:#b08968"></i>Chair</span>
+            <span><i style="background:#6b5b4a"></i>U-desk</span>
+          </div>
+        </div>
+        <aside class="side-card">
+          <div class="tag">Max maker surface</div>
+          <h3>Tradeoff</h3>
+          <p>
+            U-desk gives dedicated runs for computer, Cricut, and 3D printer without sharing a surface —
+            but the cozy zone shrinks to a single lounge chair.
+          </p>
+          <ul>
+            <li>Best if crafting is the primary use</li>
+            <li>Keep bed curtains closed when printing (noise/dust)</li>
+            <li>TV still works on Wall&nbsp;2 opposite the chair</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ===================== OPTION C ===================== -->
+    <div class="panel" id="panel-c" role="tabpanel" aria-labelledby="tab-c">
+      <div class="layout-grid">
+        <div class="plan-card">
+          <div class="plan-label">
+            <h2>Layout C — Flipped Ends</h2>
+            <span>desk on Wall 1 · bed on Wall 3</span>
+          </div>
+          <svg class="floorplan" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-label="Top-down floor plan option C">
+            <defs>
+              <pattern id="navyFloorC" patternUnits="userSpaceOnUse" width="16" height="16" patternTransform="rotate(45)">
+                <rect width="16" height="16" fill="#1a365d"/>
+                <rect width="8" height="16" fill="#243f6e"/>
+              </pattern>
+            </defs>
+            <rect x="40" y="40" width="440" height="220" fill="url(#navyFloorC)" stroke="#0b2545" stroke-width="4"/>
+            <text x="260" y="28" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 4 · door + windows</text>
+            <g fill="#cfe0f5" stroke="#0b2545" stroke-width="1.5">
+              <rect x="82" y="36" width="55" height="8" rx="1"/>
+              <rect x="204" y="34" width="82" height="12" rx="1" fill="#f3efe6"/>
+              <rect x="357" y="36" width="55" height="8" rx="1"/>
+            </g>
+
+            <!-- L-desk Wall 1 -->
+            <path d="M 48 52 H 190 V 130 H 120 V 248 H 48 Z" fill="#6b5b4a" stroke="#4d4033" stroke-width="1.5"/>
+            <text x="95" y="100" text-anchor="middle" font-family="Fraunces,serif" font-size="12" fill="#f7f4ee">L-DESK</text>
+            <rect x="58" y="62" width="36" height="24" rx="2" fill="#1c2430"/>
+            <text x="76" y="78" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#cfe0f5">PC</text>
+            <rect x="110" y="62" width="36" height="24" rx="2" fill="#eee8df"/>
+            <text x="128" y="78" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#1c2430">Cricut</text>
+            <rect x="58" y="190" width="32" height="32" rx="2" fill="#3d4f5f"/>
+            <text x="74" y="210" text-anchor="middle" font-family="Outfit,sans-serif" font-size="7" fill="#fff">3DP</text>
+
+            <!-- cozy -->
+            <rect x="210" y="150" width="100" height="70" rx="8" fill="#b08968" stroke="#8a6a4e" stroke-width="1.5"/>
+            <text x="260" y="190" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#fff" font-weight="600">loveseat</text>
+            <rect x="230" y="248" width="60" height="8" rx="1" fill="#2d3436"/>
+            <text x="260" y="242" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#f3efe6">TV</text>
+
+            <!-- bed Wall 3 -->
+            <rect x="380" y="44" width="96" height="212" fill="#d7e3f0" stroke="#5b7fa8" stroke-width="1.5"/>
+            <rect x="396" y="70" width="72" height="160" rx="6" fill="#8fa8c4" stroke="#4a6a88" stroke-width="1.5"/>
+            <text x="432" y="160" text-anchor="middle" font-family="Fraunces,serif" font-size="13" fill="#0b2545">BED NOOK</text>
+            <line x1="380" y1="50" x2="380" y2="250" stroke="#f3efe6" stroke-width="3" stroke-dasharray="6 4"/>
+          </svg>
+          <div class="legend">
+            <span><i style="background:#6b5b4a"></i>Desk @ Wall 1</span>
+            <span><i style="background:#8fa8c4"></i>Bed @ Wall 3</span>
+          </div>
+        </div>
+        <aside class="side-card">
+          <div class="tag">Same idea, swapped</div>
+          <h3>When to flip</h3>
+          <p>
+            Use this if one short end sits closer to a fence, AC compressor, or afternoon sun you want to avoid for sleeping.
+            Functionally equal to Layout&nbsp;A.
+          </p>
+          <ul>
+            <li>Desk still gets a side window for daylight</li>
+            <li>Bed still spans the full 8′ width in a shallow nook</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <!-- ===================== SHELL ===================== -->
+    <div class="panel" id="panel-shell" role="tabpanel" aria-labelledby="tab-shell">
+      <div class="layout-grid">
+        <div class="plan-card">
+          <div class="plan-label">
+            <h2>Empty shell — openings from build order</h2>
+            <span>Wall 4 = door wall</span>
+          </div>
+          <svg class="floorplan" viewBox="0 0 520 300" xmlns="http://www.w3.org/2000/svg" aria-label="Empty shell floor plan">
+            <rect x="40" y="40" width="440" height="220" fill="#f7f4ee" stroke="#0b2545" stroke-width="4"/>
+            <!-- grid 1ft -->
+            <g stroke="rgba(11,37,69,0.08)" stroke-width="1">
+              <!-- 16 ft columns, 8 ft rows: 440/16=27.5, 220/8=27.5 -->
+            </g>
+            <g stroke="rgba(11,37,69,0.1)" stroke-width="1">
+              <path d="M67.5 40 V260 M95 40 V260 M122.5 40 V260 M150 40 V260 M177.5 40 V260 M205 40 V260 M232.5 40 V260 M260 40 V260 M287.5 40 V260 M315 40 V260 M342.5 40 V260 M370 40 V260 M397.5 40 V260 M425 40 V260 M452.5 40 V260"/>
+              <path d="M40 67.5 H480 M40 95 H480 M40 122.5 H480 M40 150 H480 M40 177.5 H480 M40 205 H480 M40 232.5 H480"/>
+            </g>
+            <text x="260" y="28" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 4 (16′) — all openings</text>
+            <text x="260" y="282" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">WALL 2 (16′) — blank</text>
+            <text x="18" y="155" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675" transform="rotate(-90 18 155)">W1</text>
+            <text x="502" y="155" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675" transform="rotate(90 502 155)">W3</text>
+
+            <g fill="#cfe0f5" stroke="#0b2545" stroke-width="1.5">
+              <rect x="82" y="36" width="55" height="8" rx="1"/>
+              <rect x="204" y="34" width="82" height="12" rx="1" fill="#fff"/>
+              <rect x="357" y="36" width="55" height="8" rx="1"/>
+            </g>
+            <text x="110" y="58" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#163a63">24×36 @ 3′</text>
+            <text x="245" y="58" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#0b2545">36″ door @ 8′</text>
+            <text x="385" y="58" text-anchor="middle" font-family="Outfit,sans-serif" font-size="9" fill="#163a63">24×36 @ 13′</text>
+            <path d="M 204 34 Q 204 8 245 8" fill="none" stroke="#c45c26" stroke-width="1.2" stroke-dasharray="3 2"/>
+            <text x="260" y="150" text-anchor="middle" font-family="Fraunces,serif" font-size="16" fill="#0b2545">8′ × 16′</text>
+            <text x="260" y="170" text-anchor="middle" font-family="Outfit,sans-serif" font-size="11" fill="#5a6675">+ 7 transom windows across Wall 4</text>
+          </svg>
+        </div>
+        <aside class="side-card">
+          <div class="tag">From CPQ539101</div>
+          <h3>Openings</h3>
+          <ul>
+            <li>Walls 1–3: no doors or windows</li>
+            <li>Wall 4: LHOS 9-lite door centered, windows flanking, 7×10×23 transoms</li>
+            <li>No loft — full ceiling height available for curtains / floating shelves</li>
+          </ul>
+        </aside>
+      </div>
+    </div>
+
+    <div class="zones">
+      <div class="zone">
+        <strong>Sleep</strong>
+        <span>Shallow twin platform across the 8′ wall (~3′4″–3′6″). Curtain track or open shelves frame the nook without eating floor.</span>
+      </div>
+      <div class="zone">
+        <strong>Lounge</strong>
+        <span>Centered on the door. Loveseat faces Wall&nbsp;2 so the TV isn’t backlighted by the door and windows.</span>
+      </div>
+      <div class="zone">
+        <strong>Create</strong>
+        <span>L or U desk on the opposite short wall. Park the 3D printer at the outer corner — noise and heat away from the bed.</span>
+      </div>
+    </div>
+
+    <section class="block">
+      <h2>Finish direction</h2>
+      <p>Tied to your Steel Blue / Pearl exterior and the must-haves you listed.</p>
+      <div class="dims">
+        <div class="dim">
+          <b>Floor</b>
+          <span>Navy geometric vinyl plank or peel-and-stick tile (star / diamond / herringbone pattern). Waterproof over treated plywood.</span>
+        </div>
+        <div class="dim">
+          <b>Walls</b>
+          <span>Horizontal shiplap (painted pearl/cream) over insulated + wrapped walls. Keep trim crisp white like the exterior Pearl.</span>
+        </div>
+        <div class="dim">
+          <b>Bed nook</b>
+          <span>Platform with drawers; twin mattress; soft curtain on a ceiling track; optional reading sconce.</span>
+        </div>
+        <div class="dim">
+          <b>Desk zone</b>
+          <span>Butcher-block or laminate L/U tops on cabinets or legs; separate surge strips for PC / Cricut / printer.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="block">
+      <h2>Rough cut list (Layout A)</h2>
+      <ul class="shopping">
+        <li>Navy patterned vinyl / LVP flooring — ~110–120 sq ft with waste</li>
+        <li>Shiplap + paint (pearl) — ~350–400 sq ft wall surface</li>
+        <li>Twin platform bed + mattress (or daybed frame)</li>
+        <li>Ceiling curtain track + blackout/linen panels</li>
+        <li>Compact loveseat (≤60″) or two lounge chairs</li>
+        <li>Wall-mount TV 32–43″ on Wall 2</li>
+        <li>L-desk ~60–72″ main + 40–48″ return</li>
+        <li>Task lighting + outlet plan (computer, Cricut, 3D printer)</li>
+        <li>Mini split or portable AC (not on build order — plan early)</li>
+      </ul>
+    </section>
+
+    <section class="block">
+      <h2>Assumptions baked into these plans</h2>
+      <p style="margin-bottom:0.75rem">
+        Confirm or override these and we can refine the drawings:
+      </p>
+      <ul>
+        <li>Twin / twin-XL mattress for the smallest nook depth (full needs ~4′6″+)</li>
+        <li>Layout A recommended unless you want max desk (B) or flipped ends (C)</li>
+        <li>TV is nice-to-have on the solid long wall; skip loveseat if you prefer a reading chair only</li>
+        <li>Door swings out (LHOS) — interior clearance at threshold is fine</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    Based on Graceland build order CPQ539101 · Signature Urban Shed 8×16 · Steel Blue / Pearl / Snow.
+    Open this file in a browser. Switch tabs to compare layouts.
+  </footer>
+
+  <script>
+    const tabs = [...document.querySelectorAll('.tab')];
+    const panels = [...document.querySelectorAll('.panel')];
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.setAttribute('aria-selected', String(t === tab)));
+        panels.forEach((p) => p.classList.toggle('active', p.id === tab.getAttribute('aria-controls')));
+      });
+    });
+  </script>
+</body>
+</html>
