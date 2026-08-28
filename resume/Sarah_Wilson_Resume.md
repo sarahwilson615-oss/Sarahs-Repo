@@ -1,6 +1,6 @@
 # Sarah Wilson
 
-Port Aransas, TX (Remote) · (832) 726-5516 · sarahwilson615@gmail.com
+Port Aransas, TX (Remote) · (361) 416-0556 · sarahwilson615@gmail.com
 
 **Operations & Client Services Professional** | Eligibility documentation · Confidential records · Remote-ready
 
