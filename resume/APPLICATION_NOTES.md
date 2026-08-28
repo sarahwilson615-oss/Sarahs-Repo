@@ -37,10 +37,12 @@ Also a reasonable fit:
 On applications, your closest proof points are:
 
 - Verifying insurance and title documents before a real estate file can close
-- Tracking missing items and deadlines
+- Tracking missing items and deadlines (office/transaction manager since June 2023)
 - Phone and email coordination with clients and third parties
-- Confidential financial records
+- Confidential financial and donor records (brokerage files plus 501(c)(3) president)
+- MLS, DocuSign, and Google Workspace
 - Remote work at Stitch Fix
+- More than $30 million in personal sales volume (high-volume, deadline-driven work)
 
 ## Stretch — apply selectively
 
@@ -61,13 +63,14 @@ Those include many Senior Insurance Authorization Specialist and Centene-style v
 
 You can paste this and tweak the title:
 
-> I do not have hospital billing tenure, but for 6+ years I have managed real estate transaction files: verifying insurance and title documents, tracking outstanding conditions, documenting missing information, and coordinating by phone and email until a file is clear to proceed. I also worked remotely at Stitch Fix and am ready to complete HIPAA and payer-system training.
+> I do not have hospital billing tenure. I have been a REALTOR since 2020 (more than $30 million in personal sales volume) and office/transaction manager since 2023: verifying insurance and title documents, tracking outstanding conditions, and coordinating by phone and email until a file is clear to proceed. I use MLS, DocuSign, and Google Workspace, previously worked remotely at Stitch Fix, and serve as president of a 501(c)(3). I am ready to complete HIPAA and payer-system training.
 
-## Optional details to add later
+## Optional details still worth adding later
 
-If you send any of these, they can be dropped into the Coldwell Banker bullets without changing the rest of the resume:
+These are already on the resume: MLS, DocuSign, Google Workspace; $30M personal volume; REALTOR since August 2020; office/transaction manager since June 2023; president of Port Aransas Education Foundation.
 
-- Transaction volume (files per month/year)
-- Software (Dotloop, SkySlope, TransactionDesk, DocuSign, MLS, etc.)
-- Number of agents the office supported
-- Whether office/transaction manager duties started on a different date than your agent license
+If you send any of these, they can be dropped in without changing the rest of the resume:
+
+- Number of transaction files per month, or number of agents the office supports
+- Month/year you became PAEF president, if different from board service starting in 2021
+- LinkedIn URL

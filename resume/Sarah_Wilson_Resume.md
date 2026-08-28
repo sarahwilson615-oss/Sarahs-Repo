@@ -6,7 +6,7 @@ Port Aransas, TX (Remote) · (832) 726-5516 · sarahwilson615@gmail.com
 
 ## Professional Summary
 
-Operations and client-services professional with 6+ years coordinating high-stakes transactions, verifying insurance and coverage documents, and clearing files under hard deadlines. Experienced collecting, checking, and documenting missing information; communicating by phone and email with clients and third parties; and protecting confidential financial and personal records. Proven remote worker with strong computer skills, accurate data entry, and the ability to learn new systems quickly. Seeking remote insurance verification, patient access, or financial access roles.
+Operations and client-services professional. Independent contractor REALTOR since 2020 and office/transaction manager since 2023. Coordinates high-stakes closings, verifies insurance and coverage documents, and clears files under hard deadlines. Experienced collecting, checking, and documenting missing information; communicating by phone and email with clients and third parties; and protecting confidential financial and personal records. Personally produced more than $30 million in sales volume. Proven remote worker (Stitch Fix) using MLS, DocuSign, and Google Workspace. Seeking remote insurance verification, patient access, or financial access roles.
 
 ## Skills
 
@@ -16,20 +16,25 @@ Operations and client-services professional with 6+ years coordinating high-stak
 - Confidential records and professional discretion (ready to complete HIPAA training)
 - Accurate data entry, documentation, and attention to detail
 - Multi-party coordination (clients, lenders, title, inspectors, insurance contacts)
-- Microsoft Office and Google Workspace; quick to learn new platforms
+- MLS, DocuSign, and Google Workspace; Microsoft Office; quick to learn new platforms
 - Independent remote work, high-volume follow-up, and time-sensitive file management
 
 ## Professional Experience
 
-### Real Estate Agent & Office / Transaction Manager
-**Coldwell Banker Island Escapes** — Port Aransas, TX  
+**Coldwell Banker Island Escapes** — Port Aransas, TX
+
+### Office / Transaction Manager
+June 2023 – Present
+
+- Manage office and transaction workflow: track files from contract to close, verify required insurance, title, and lender documents, and clear outstanding items before deadline.
+- Serve as point of contact for clients, agents, lenders, title, and insurance contacts; document status, missing information, and next steps by phone and email.
+- Maintain accurate records in MLS, DocuSign, and Google Workspace; protect confidential client and financial information.
+
+### REALTOR (Independent Contractor)
 August 2020 – Present
 
-- Manage transaction files from contract to close: verify required insurance, title, and lender documents; track outstanding conditions; and clear items before deadline.
-- Serve as office and sales point of contact for clients and third parties; document status, missing information, and next steps in writing and by phone.
-- Review coverage and closing requirements in a coastal market where homeowners and flood insurance documentation is routinely required to proceed.
-- Maintain accurate records in brokerage, MLS, and transaction systems; protect confidential client and financial information.
-- Coordinate high-volume, time-sensitive files in a fast-paced South Texas resort market while supporting office operations, agent workflow, and client service.
+- Represent clients in a high-volume coastal market; personally produced more than $30 million in sales volume.
+- Review homeowners, flood, and title insurance documentation required for closings and follow up until files are complete.
 - Recognized in the Top 18% of Coldwell Banker agents worldwide in 2021.
 
 ### Stylist (Remote)
@@ -62,6 +67,15 @@ November 2013 – October 2017
 
 - Led store operations, customer service, and team training while enforcing company policy and protecting confidential employee and customer information.
 - Completed audits, cycle counts, and inventory with a focus on accuracy; helped implement a new POS system while maintaining daily operations.
+
+## Volunteer Leadership
+
+### President
+**Port Aransas Education Foundation, 501(c)(3)** — Port Aransas, TX  
+Board service 2021 – Present
+
+- Lead a community education nonprofit: board communication, confidential donor and organizational records, and deadline-driven follow-up.
+- Coordinate schools, donors, and community partners; document decisions, missing items, and next steps.
 
 ## Education
 
