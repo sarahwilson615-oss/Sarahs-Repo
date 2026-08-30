@@ -18,6 +18,17 @@ On iPhone (Safari or the GitHub app):
 
 Apply only on [Stitch Fix careers](https://www.stitchfix.com/careers/jobs) or [Fountain / Stitch Fix](https://web.fountain.com/c/stitch-fix). Texas is currently an eligible hiring state. Recent stylist openings have been part-time Flex Tier (about 10–20 hours/week). If there is no open stylist req, join the Styling Talent Community on the careers page.
 
+## Short Story version (separate file)
+
+Do not send Short Story the Stitch Fix-branded resume. That version says you want to return to Stitch Fix.
+
+- `Sarah_Wilson_Resume_ShortStory.pdf` — download this to your iPhone
+- `Sarah_Wilson_Resume_ShortStory.html` / `.md` — editable source
+
+Same iPhone steps: open the PDF → Share → **Save to Files** → attach in the Short Story application.
+
+Apply: [Short Story Personal Stylist](https://jobs.ashbyhq.com/shortstory/9142407b-c767-4688-8443-a8724f82860c). Texas is on their hire list. About $15–$17.50/hour, 20–29 hours/week. They want 1+ year of virtual/online styling (your Stitch Fix year).
+
 Do not add CMAA, CBCS, or CPC before you start applying. Employers for these door roles care more about customer service, documentation, computer skills, and confidential-information handling than a verification certificate.
 
 ## Headline swaps (keep the rest of the resume the same)
