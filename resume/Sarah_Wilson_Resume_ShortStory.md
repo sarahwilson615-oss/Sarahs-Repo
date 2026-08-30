@@ -6,7 +6,7 @@ Port Aransas, TX (Remote) · (361) 416-0556 · sarahwilson615@gmail.com
 
 ## Professional Summary
 
-Results-driven and client-focused Remote Personal Stylist seeking a Short Story styling role. Former Stitch Fix Stylist (2019–2020) with a full year of virtual, dashboard-based styling: analyzing client profiles, curating outfits by fit and lifestyle, and writing notes that support keep rates and repeat shipments. Bachelor of Science in Fashion Merchandising. Strong eye for figure-flattering silhouettes and for getting the look right, not just getting the box out. Comfortable on digital platforms and in a remote, metrics-driven environment. Based in Texas and available 20–29 hours per week.
+Results-driven and client-focused Remote Personal Stylist seeking a Short Story styling role. One year of virtual, dashboard-based subscription styling: analyzing client profiles, curating figure-flattering outfits by fit and lifestyle, and writing notes that support keep rates and repeat orders. Bachelor of Science in Fashion Merchandising. Care about getting the look right, not just getting the box out. Comfortable on digital platforms and in a remote, metrics-driven environment. Based in Texas and available 20–29 hours per week.
 
 ## Core Competencies
 
@@ -25,11 +25,11 @@ Results-driven and client-focused Remote Personal Stylist seeking a Short Story 
 **Stitch Fix** — Remote  
 March 2019 – March 2020
 
-- Used Stitch Fix’s styling platform and algorithm-suggested inventory to analyze client profiles and build personalized Fixes by fit, lifestyle, and occasion.
-- Wrote individualized client notes to explain each Fix, invite feedback, and support keep rates, repeat shipments, and brand loyalty.
+- Styled clients remotely from a digital dashboard: reviewed profiles and feedback, then curated outfits by fit, lifestyle, and occasion from available inventory.
+- Wrote a personalized note with each shipment to explain choices, invite feedback, and support keep rates and repeat orders.
 - Met daily styling deadlines in a remote, metrics-driven environment; kept client profiles accurate and current.
-- Partnered with leads and customer service to resolve client issues and protect the client experience.
-- Participated in product and software tests and shared structured feedback with technical and design teams.
+- Partnered with customer service to resolve client issues and protect the client experience.
+- Tested new product and software features and shared structured feedback with internal teams.
 
 **Coldwell Banker Island Escapes** — Port Aransas, TX  
 August 2020 – Present
