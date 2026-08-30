@@ -2,20 +2,22 @@
 
 Port Aransas, TX (Remote) · (361) 416-0556 · sarahwilson615@gmail.com
 
-**Returning Stitch Fix Stylist** | Fashion merchandising · Personalized client styling · Remote-ready
+**Returning Stitch Fix Stylist** | Personalized Fixes · Client retention · Remote-ready
 
 ## Professional Summary
 
-Former Stitch Fix Stylist (2019–2020) seeking to return to a remote styling role. Bachelor of Science in Fashion Merchandising with a minor in Marketing. Apparel background from boutique floor through merchandising and e-commerce. Strong written client communication, experience styling across sizes and lifestyles, and a proven record of meeting deadlines on a web-based platform. Left Stitch Fix after relocating from the Houston hiring area; now based in Texas and available for Flex Tier hours.
+Results-driven and client-focused Remote Personal Stylist seeking to return to Stitch Fix. Former Stylist (2019–2020) with proven experience using Stitch Fix styling platforms, algorithm-suggested inventory, and client notes to deliver personalized Fixes. Skilled at analyzing client profiles, styling across sizes and lifestyles, and using feedback to support keep rates and brand loyalty. Bachelor of Science in Fashion Merchandising. Ready to contribute immediately with little onboarding ramp-up. Left after relocating from the Houston hiring area; now based in Texas and available for Flex Tier hours.
 
-## Skills
+## Core Competencies
 
-- Personalized styling across sizes, lifestyles, and occasions
-- Written client notes that build trust, encourage feedback, and support repeat Fixes
-- Remote, metrics-driven work; daily deadlines and accurate client-profile updates
-- Google Workspace (Docs, Gmail); quick to learn Slack, Zoom, and new styling tools
-- Apparel merchandising, product assortment, and trend awareness
-- Client service, problem-solving with support teams, and confidential client information
+- Stitch Fix platform expertise
+- Client retention and feedback analysis
+- Trend forecasting and outfitting
+- Data-driven wardrobe curation
+- Remote time management
+- Active listening and empathy
+- Written client notes and keep-rate focus
+- Google Workspace; quick to learn Slack, Zoom, and new styling tools
 
 ## Professional Experience
 
@@ -23,8 +25,8 @@ Former Stitch Fix Stylist (2019–2020) seeking to return to a remote styling ro
 **Stitch Fix** — Remote  
 March 2019 – March 2020
 
-- Styled clients of all sizes on Stitch Fix’s online platform, matching inventory to stated needs, fit, lifestyle, and occasion.
-- Wrote individualized client notes to explain each Fix, invite feedback, and encourage keep rates and repeat shipments.
+- Used Stitch Fix’s styling platform and algorithm-suggested inventory to analyze client profiles and build personalized Fixes by fit, lifestyle, and occasion.
+- Wrote individualized client notes to explain each Fix, invite feedback, and support keep rates, repeat shipments, and brand loyalty.
 - Met daily styling deadlines in a remote, metrics-driven environment; kept client profiles accurate and current.
 - Partnered with leads and customer service to resolve client issues and protect the client experience.
 - Participated in product and software tests and shared structured feedback with technical and design teams.
