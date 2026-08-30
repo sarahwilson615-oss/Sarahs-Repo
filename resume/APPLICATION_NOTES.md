@@ -2,6 +2,22 @@
 
 Use `Sarah_Wilson_Resume.html` (Print → Save as PDF) or the markdown source as your working copy. This version is written for **entry-level insurance verification and adjacent patient-access roles**, not for medical billing/coding jobs that require hospital or payer-portal tenure.
 
+## Stitch Fix version (separate file)
+
+Use these files only for Stitch Fix (stylist / styling talent community). Do not send the insurance-verification resume to Stitch Fix.
+
+- `Sarah_Wilson_Resume_StitchFix.pdf` — download this to your iPhone
+- `Sarah_Wilson_Resume_StitchFix.html` / `.md` — editable source
+
+On iPhone (Safari or the GitHub app):
+
+1. Open `Sarah_Wilson_Resume_StitchFix.pdf` in the pull request Files list.
+2. Tap the download or share icon.
+3. Choose **Save to Files** (iCloud Drive or On My iPhone).
+4. Upload that PDF in the Stitch Fix application.
+
+Apply only on [Stitch Fix careers](https://www.stitchfix.com/careers/jobs) or [Fountain / Stitch Fix](https://web.fountain.com/c/stitch-fix). Texas is currently an eligible hiring state. Recent stylist openings have been part-time Flex Tier (about 10–20 hours/week). If there is no open stylist req, join the Styling Talent Community on the careers page.
+
 Do not add CMAA, CBCS, or CPC before you start applying. Employers for these door roles care more about customer service, documentation, computer skills, and confidential-information handling than a verification certificate.
 
 ## Headline swaps (keep the rest of the resume the same)
