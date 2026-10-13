@@ -210,19 +210,6 @@
   }
   .warn { font-weight: 700; color: var(--ink); }
 
-  .footer {
-    margin-top: 0.08in;
-    padding-top: 0.1in;
-    border-top: 2px solid var(--gulf);
-    display: flex;
-    justify-content: space-between;
-    gap: 0.3in;
-    font-size: 10.5pt;
-    line-height: 1.3;
-  }
-  .footer strong { color: var(--gulf); }
-  .footer a { color: var(--ink); text-decoration: none; font-weight: 700; }
-
   @media print {
     html, body { background: white; }
     .workspace { display: block; padding: 0; max-width: none; }
@@ -248,15 +235,6 @@
       </label>
       <label>Nearby post office
         <input id="postOffice" name="postOffice" />
-      </label>
-      <label>Contact name
-        <input id="contactName" name="contactName" />
-      </label>
-      <label>Phone
-        <input id="phone" name="phone" />
-      </label>
-      <label>Email
-        <input id="email" name="email" type="email" />
       </label>
       <div class="actions">
         <button class="primary" id="printBtn" type="button">Print / Save as PDF</button>
@@ -343,11 +321,6 @@
           </div>
         </section>
       </div>
-
-      <footer class="footer">
-        <div>Questions: <strong id="outContact"></strong></div>
-        <div><a id="outPhone" href=""></a> · <a id="outEmail" href=""></a></div>
-      </footer>
     </article>
   </div>
 
@@ -358,10 +331,7 @@
     street: "8314 Serenity Ct",
     cityLine: "Corpus Christi, TX 78414",
     esid: "1003-2789-4349-151-05",
-    postOffice: "6742 Weber Rd, Corpus Christi, TX 78413",
-    contactName: "Marnie Pate",
-    phone: "(361) 460-0250",
-    email: "marnie@portaescapes.com"
+    postOffice: "6742 Weber Rd, Corpus Christi, TX 78413"
   };
   var FIELDS = Object.keys(DEFAULTS);
 
@@ -385,23 +355,11 @@
     return Object.assign({}, DEFAULTS);
   }
 
-  function telHref(phone) {
-    var digits = String(phone || "").replace(/[^\d+]/g, "");
-    return digits ? "tel:" + digits : "";
-  }
-
   function render(data) {
     var city = data.cityLine ? ", " + data.cityLine : "";
     $("outAddress").textContent = (data.street || "Street address") + city;
     $("outEsid").textContent = data.esid || "Add ESI ID";
     $("outPost").textContent = data.postOffice || "";
-    $("outContact").textContent = data.contactName || "";
-    var phone = $("outPhone");
-    phone.textContent = data.phone || "";
-    phone.href = telHref(data.phone);
-    var email = $("outEmail");
-    email.textContent = data.email || "";
-    email.href = data.email ? "mailto:" + data.email : "";
   }
 
   function emailText(data) {
@@ -414,11 +372,7 @@
       "",
       "Please switch electricity, water, and trash into your name upon move-in, per the lease. Most providers will ask for a copy of the lease.",
       "",
-      "The ESID # for the property is " + data.esid + ".",
-      "",
-      data.contactName,
-      data.phone,
-      data.email
+      "The ESID # for the property is " + data.esid + "."
     ].join("\n");
   }
 
