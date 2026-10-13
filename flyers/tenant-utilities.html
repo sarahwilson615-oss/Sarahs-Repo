@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tenant utilities template — Coldwell Banker Island Escapes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --sand: #F4F1EA;
+    --foam: #FAF8F4;
+    --gulf: #002F6C;
+    --tide: #1A4A8A;
+    --coral: #C45C26;
+    --ink: #1A1F24;
+    --muted: #5C6670;
+    --line: color-mix(in srgb, var(--gulf) 16%, transparent);
+  }
+
+  * { box-sizing: border-box; }
+
+  @page { size: letter; margin: 0; }
+
+  html, body { margin: 0; background: #d8dee4; color: var(--ink); }
+  body {
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .workspace {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 1.25rem 1rem 2rem;
+  }
+
+  .editor {
+    position: sticky;
+    top: 1rem;
+    background: white;
+    border: 1px solid color-mix(in srgb, var(--gulf) 18%, white);
+    border-radius: 12px;
+    padding: 0.9rem 0.95rem 1rem;
+    box-shadow: 0 8px 28px rgba(26, 31, 36, 0.08);
+  }
+  .editor h2 {
+    margin: 0 0 0.2rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gulf);
+  }
+  .editor .help {
+    margin: 0 0 0.75rem;
+    font-size: 0.82rem;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+  .editor label {
+    display: block;
+    margin: 0.55rem 0 0;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--tide);
+  }
+  .editor input, .editor select, .editor textarea {
+    width: 100%;
+    margin-top: 0.22rem;
+    border: 1px solid color-mix(in srgb, var(--gulf) 22%, white);
+    border-radius: 8px;
+    padding: 0.42rem 0.5rem;
+    font: 600 0.92rem/1.3 "Source Sans 3", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--foam);
+  }
+  .editor textarea { min-height: 4.4rem; resize: vertical; }
+  .editor .note {
+    margin: 0.28rem 0 0;
+    font-size: 0.75rem;
+    line-height: 1.35;
+    color: var(--muted);
+  }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 0.85rem; }
+  button {
+    border: 0;
+    border-radius: 999px;
+    padding: 0.48rem 0.8rem;
+    font: 700 0.82rem/1 "Source Sans 3", system-ui, sans-serif;
+    cursor: pointer;
+  }
+  button.primary { background: var(--gulf); color: white; }
+  button.ghost { background: color-mix(in srgb, var(--gulf) 8%, white); color: var(--gulf); }
+  .status { min-height: 1.1rem; margin: 0.55rem 0 0; font-size: 0.8rem; color: var(--tide); }
+
+  .sheet {
+    width: 8.5in;
+    height: 11in;
+    margin: 0 auto;
+    background:
+      radial-gradient(720px 280px at 0% 0%, #d7ebf4 0%, transparent 58%),
+      linear-gradient(180deg, var(--foam), var(--sand));
+    box-shadow: 0 12px 40px rgba(26, 31, 36, 0.18);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .inner { padding: 0.34in 0.38in 0; }
+
+  .header {
+    display: grid;
+    grid-template-columns: 1.85in 1fr;
+    gap: 0.28in;
+    align-items: end;
+  }
+  .logo { width: 1.85in; height: auto; display: block; }
+  .eyebrow {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--tide);
+  }
+  h1 {
+    margin: 0.04rem 0 0.08rem;
+    font-family: Fraunces, Georgia, serif;
+    font-weight: 700;
+    font-size: 1.72rem;
+    line-height: 0.95;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+  }
+  .sub {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gulf);
+  }
+
+  .band {
+    margin-top: 0.18in;
+    background: var(--gulf);
+    color: white;
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: 0.3in;
+    padding: 0.16in 0.22in;
+    align-items: center;
+  }
+  .street {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    line-height: 1.05;
+  }
+  .city { margin-top: 0.08rem; font-size: 0.72rem; font-weight: 600; opacity: 0.92; }
+  .lease { margin-top: 0.06rem; font-size: 0.64rem; letter-spacing: 0.04em; text-transform: uppercase; color: #f3e4d0; }
+  .esid-label {
+    font-size: 0.52rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.75;
+  }
+  .esid {
+    margin-top: 0.06rem;
+    font-family: Fraunces, Georgia, serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    color: #f6d7c4;
+  }
+  .esid-hint { margin-top: 0.05rem; font-size: 0.58rem; opacity: 0.8; }
+
+  .lede {
+    margin: 0.14in 0 0.12in;
+    font-size: 0.7rem;
+    line-height: 1.35;
+    color: var(--ink);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.1in;
+  }
+  .card {
+    border: 1.5px solid var(--gulf);
+    background: color-mix(in srgb, white 90%, var(--foam));
+    min-height: 0;
+  }
+  .card h2 {
+    margin: 0;
+    background: var(--gulf);
+    color: white;
+    text-align: center;
+    font-family: "Source Sans 3", system-ui, sans-serif;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.35rem;
+  }
+  .card .body { padding: 0.16rem 0.38rem 0.2rem; }
+  .card p, .card li {
+    margin: 0;
+    font-size: 0.62rem;
+    line-height: 1.32;
+    color: var(--ink);
+  }
+  .card p + p, .card ul { margin-top: 0.12rem; }
+  .card ul { margin: 0.1rem 0 0; padding-left: 0.85rem; }
+  .card a { color: var(--tide); font-weight: 700; text-decoration: none; }
+  .card strong { color: var(--gulf); }
+
+  .footer {
+    margin-top: auto;
+    background: var(--gulf);
+    color: white;
+    display: grid;
+    grid-template-columns: 1.7in 1.15fr 1fr 1.15fr;
+    gap: 0.28in;
+    align-items: center;
+    padding: 0.16in 0.38in;
+  }
+  .footer img {
+    width: 1.65in;
+    height: auto;
+    filter: brightness(0) invert(1);
+  }
+  .footer .name {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.1;
+  }
+  .footer .role {
+    margin-top: 0.06rem;
+    font-size: 0.52rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .footer .label {
+    font-size: 0.48rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.72;
+  }
+  .footer .value { margin-top: 0.04rem; font-size: 0.68rem; font-weight: 600; }
+  .footer a { color: white; text-decoration: none; }
+  .fine {
+    font-size: 0.52rem;
+    line-height: 1.25;
+    opacity: 0.85;
+  }
+
+  @media screen and (max-width: 1100px) {
+    .workspace { grid-template-columns: 1fr; }
+    .editor { position: static; }
+    .sheet { transform-origin: top center; }
+  }
+
+  @media print {
+    html, body { background: white; }
+    .workspace { display: block; padding: 0; max-width: none; }
+    .editor { display: none !important; }
+    .sheet { box-shadow: none; margin: 0; }
+  }
+</style>
+</head>
+<body>
+  <div class="workspace">
+    <form class="editor" id="editor" autocomplete="off">
+      <h2>House template</h2>
+      <p class="help">Change the address and ESI ID for each home, then use Print / Save as PDF and email that page. This panel does not print.</p>
+
+      <label>Street
+        <input id="street" name="street" required />
+      </label>
+      <p class="note">The source sheet says Serenity Ct. The same listing is also filed as Serenity Cir. Confirm the suffix before you send.</p>
+
+      <label>City, state, ZIP
+        <input id="cityLine" name="cityLine" />
+      </label>
+      <label>ESI ID
+        <input id="esid" name="esid" spellcheck="false" />
+      </label>
+      <label>Lease start (optional)
+        <input id="leaseStart" name="leaseStart" type="date" />
+      </label>
+      <label>Natural gas
+        <select id="gas" name="gas">
+          <option value="confirm">Electric heat — confirm a meter</option>
+          <option value="yes">Gas meter on the property</option>
+          <option value="none">No gas at this home</option>
+        </select>
+      </label>
+      <label>Nearby post office
+        <input id="postOfficeName" name="postOfficeName" />
+      </label>
+      <label>Post office address
+        <input id="postOfficeAddress" name="postOfficeAddress" />
+      </label>
+      <p class="note">Weber Rd is the office on the original sheet. Gulfway, 1345 Crescent Dr, Corpus Christi, TX 78412, is also nearby. Use the office that delivers this address.</p>
+
+      <label>House notes, one per line
+        <textarea id="notes" name="notes"></textarea>
+      </label>
+      <p class="note">Yard care and appliances are from a public rental listing, not the original utilities sheet. Delete a line if the lease says otherwise.</p>
+
+      <label>Renters insurance
+        <select id="insurance" name="insurance">
+          <option value="recommended">Highly encouraged</option>
+          <option value="required">Required by the lease</option>
+        </select>
+      </label>
+      <label>Insurance detail (optional)
+        <input id="insuranceDetail" name="insuranceDetail" placeholder="Liability minimum, or who to list" />
+      </label>
+
+      <label>Contact name
+        <input id="contactName" name="contactName" />
+      </label>
+      <label>Phone
+        <input id="phone" name="phone" />
+      </label>
+      <label>Email
+        <input id="email" name="email" type="email" />
+      </label>
+      <p class="note">Sample contact is Marnie Pate. Sarah Pate Wilson is (361) 416-0556, sarah@cbporta.com.</p>
+
+      <div class="actions">
+        <button class="primary" id="printBtn" type="button">Print / Save as PDF</button>
+        <button class="ghost" id="copyBtn" type="button">Copy email</button>
+        <button class="ghost" id="resetBtn" type="button">Reset sample</button>
+      </div>
+      <p class="status" id="status" role="status"></p>
+    </form>
+
+    <article class="sheet" id="sheet" aria-label="Tenant utilities sheet">
+      <div class="inner">
+        <header class="header">
+          <img class="logo" src="../assets/logo-horizontal-blue.png" alt="Coldwell Banker Island Escapes" />
+          <div>
+            <div class="eyebrow">New tenant</div>
+            <h1>Utilities &amp; services</h1>
+            <div class="sub">What to start before you move in</div>
+          </div>
+        </header>
+
+        <section class="band" aria-label="Property">
+          <div>
+            <div class="street" id="outStreet"></div>
+            <div class="city" id="outCity"></div>
+            <div class="lease" id="outLease" hidden></div>
+          </div>
+          <div>
+            <div class="esid-label">ESI ID</div>
+            <div class="esid" id="outEsid"></div>
+            <div class="esid-hint">Meter ID for this address. Not an account number.</div>
+          </div>
+        </section>
+
+        <p class="lede" id="outLede"></p>
+
+        <div class="grid">
+          <section class="card">
+            <h2>Electricity</h2>
+            <div class="body">
+              <p>Compare plans at <a href="https://www.powertochoose.org">powertochoose.org</a>. Give the provider the ESI ID above. It stays with this meter when tenants change.</p>
+              <p>Start service a few business days before the lease begins, and have the lease ready. Corpus Christi delivery is through AEP Texas.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Water, trash &amp; recycling</h2>
+            <div class="body">
+              <p>The city Utility Billing Office starts water, wastewater, trash, recycling, and stormwater together. Trash is not a separate account.</p>
+              <p>Start service online or call 311. From outside Corpus Christi, call <a href="tel:3618262489">(361) 826-2489</a>. Bring a lease signed by you and the owner, with this address and the start date.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Natural gas</h2>
+            <div class="body"><p id="outGas"></p></div>
+          </section>
+
+          <section class="card">
+            <h2>Internet &amp; cable</h2>
+            <div class="body">
+              <p>Choose your own provider. Schedule installation before move-in if you want service on day one. The lease does not assign a company.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Mail</h2>
+            <div class="body">
+              <p><strong id="outPostName"></strong><br /><span id="outPostAddress"></span></p>
+              <p>USPS tells you where to collect mail and often issues keys for a community box. Property management does not have those keys. Forward mail at <a href="https://www.usps.com/move">usps.com/move</a> and bring your lease.</p>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Also for this home</h2>
+            <div class="body">
+              <ul id="outNotes"></ul>
+              <p id="outInsurance"></p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <footer class="footer">
+        <img src="../assets/logo-horizontal-blue.png" alt="" />
+        <div>
+          <div class="name" id="outContact"></div>
+          <div class="role">Coldwell Banker Island Escapes</div>
+        </div>
+        <div>
+          <div class="label">Call or text</div>
+          <div class="value"><a id="outPhone" href=""></a></div>
+        </div>
+        <div>
+          <div class="label">Email</div>
+          <div class="value"><a id="outEmail" href=""></a></div>
+          <div class="fine">Your lease controls if it conflicts with this page.</div>
+        </div>
+      </footer>
+    </article>
+  </div>
+
+<script>
+(function () {
+  var STORAGE_KEY = "cbie-tenant-utilities-v1";
+  var DEFAULTS = {
+    street: "8314 Serenity Ct",
+    cityLine: "Corpus Christi, TX 78414",
+    esid: "1003-2789-4349-151-05",
+    leaseStart: "",
+    gas: "confirm",
+    postOfficeName: "Southside Post Office",
+    postOfficeAddress: "6742 Weber Rd, Corpus Christi, TX 78413",
+    notes: "Yard care is your responsibility.\nBring a refrigerator, washer, and dryer. They are not provided.",
+    insurance: "recommended",
+    insuranceDetail: "",
+    contactName: "Marnie Pate",
+    phone: "(361) 460-0250",
+    email: "marnie@portaescapes.com"
+  };
+  var FIELDS = Object.keys(DEFAULTS);
+
+  function $(id) { return document.getElementById(id); }
+
+  function readForm() {
+    var data = {};
+    FIELDS.forEach(function (key) {
+      data[key] = ($(key).value || "").trim();
+    });
+    data.gas = $("gas").value;
+    data.insurance = $("insurance").value;
+    data.leaseStart = $("leaseStart").value;
+    return data;
+  }
+
+  function writeForm(data) {
+    FIELDS.forEach(function (key) {
+      $(key).value = data[key] == null ? "" : data[key];
+    });
+  }
+
+  function load() {
+    try {
+      var saved = JSON.parse(localStorage.getItem(STORAGE_KEY) || "null");
+      if (saved && saved.street) return Object.assign({}, DEFAULTS, saved);
+    } catch (err) {}
+    return Object.assign({}, DEFAULTS);
+  }
+
+  function save(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function formatDate(iso) {
+    if (!iso) return "";
+    var parts = iso.split("-");
+    if (parts.length !== 3) return iso;
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    return date.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" });
+  }
+
+  function telHref(phone) {
+    var digits = String(phone || "").replace(/[^\d+]/g, "");
+    return digits ? "tel:" + digits : "";
+  }
+
+  function gasCopy(mode) {
+    if (mode === "yes") {
+      return "This home has natural gas. The city Utility Billing Office can start gas with your water account. Call 311 if the meter is not in your name yet.";
+    }
+    if (mode === "none") {
+      return "This home does not have natural gas. You do not need a gas account.";
+    }
+    return "This home is listed with electric heat. Check for a gas meter before you order gas. If there is one, the city Utility Billing Office starts that service too.";
+  }
+
+  function insuranceCopy(data) {
+    var detail = data.insuranceDetail ? " " + data.insuranceDetail : "";
+    if (data.insurance === "required") {
+      return "Your lease requires renters insurance." + detail;
+    }
+    return "Renters insurance is highly encouraged." + detail + (detail ? "" : " Confirm any minimum with your lease.");
+  }
+
+  function noteLines(text) {
+    return String(text || "").split(/\n+/).map(function (line) { return line.trim(); }).filter(Boolean);
+  }
+
+  function render(data) {
+    $("outStreet").textContent = data.street || "Street address";
+    $("outCity").textContent = data.cityLine || "";
+    var lease = formatDate(data.leaseStart);
+    $("outLease").hidden = !lease;
+    $("outLease").textContent = lease ? "Lease starts " + lease : "";
+    $("outEsid").textContent = data.esid || "Add ESI ID";
+    var when = lease ? "before " + lease : "a few business days before your lease starts";
+    $("outLede").textContent = "Put electricity and city utilities in your name " + when + ". Most providers will ask for a copy of the lease.";
+    $("outGas").textContent = gasCopy(data.gas);
+    $("outPostName").textContent = data.postOfficeName || "Nearby post office";
+    $("outPostAddress").textContent = data.postOfficeAddress || "";
+    var list = $("outNotes");
+    list.innerHTML = "";
+    noteLines(data.notes).forEach(function (line) {
+      var item = document.createElement("li");
+      item.textContent = line;
+      list.appendChild(item);
+    });
+    list.hidden = !list.children.length;
+    $("outInsurance").textContent = insuranceCopy(data);
+    $("outContact").textContent = data.contactName || "Your contact";
+    var phone = $("outPhone");
+    phone.textContent = data.phone || "";
+    phone.href = telHref(data.phone);
+    var email = $("outEmail");
+    email.textContent = data.email || "";
+    email.href = data.email ? "mailto:" + data.email : "";
+  }
+
+  function emailText(data) {
+    var lease = formatDate(data.leaseStart);
+    var lines = [
+      "Hello,",
+      "",
+      "Attached is the utilities guide for " + data.street + (data.cityLine ? ", " + data.cityLine : "") + ".",
+      "",
+      "Please start electricity and city utilities " + (lease ? "before " + lease : "a few business days before your lease begins") + ". Most providers will ask for a copy of the lease.",
+      "",
+      "Your ESI ID, the electric meter ID for this address, is " + data.esid + ". It is not an account number.",
+      "",
+      "Reply if an account will not open and I will help.",
+      "",
+      data.contactName,
+      data.phone,
+      data.email
+    ];
+    return {
+      subject: "Utilities for your move-in at " + data.street,
+      body: lines.filter(function (line) { return line !== undefined; }).join("\n")
+    };
+  }
+
+  function setStatus(message) {
+    $("status").textContent = message;
+  }
+
+  var data = load();
+  writeForm(data);
+  render(data);
+
+  $("editor").addEventListener("input", function () {
+    data = readForm();
+    save(data);
+    render(data);
+    setStatus("");
+  });
+  $("editor").addEventListener("change", function () {
+    data = readForm();
+    save(data);
+    render(data);
+  });
+
+  $("printBtn").addEventListener("click", function () {
+    data = readForm();
+    save(data);
+    render(data);
+    window.print();
+  });
+
+  $("copyBtn").addEventListener("click", function () {
+    data = readForm();
+    var mail = emailText(data);
+    var text = "Subject: " + mail.subject + "\n\n" + mail.body;
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        setStatus("Email copied. Attach the PDF before you send.");
+      }).catch(function () {
+        setStatus(text);
+      });
+    } else {
+      setStatus(text);
+    }
+  });
+
+  $("resetBtn").addEventListener("click", function () {
+    data = Object.assign({}, DEFAULTS);
+    writeForm(data);
+    save(data);
+    render(data);
+    setStatus("Sample restored for 8314 Serenity Ct.");
+  });
+})();
+</script>
+</body>
+</html>
